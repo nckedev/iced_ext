@@ -10,7 +10,10 @@ use iced::{
 // sensor
 // selector, feature flagged "selector"
 
-pub trait IcedExt<'a, W, M> {
+pub trait IcedExt<'a, W, M>
+where
+    W: Into<Element<'a, M>>,
+{
     /// consumes and wraps self in a tooltip
     fn tooltip(self, tooltip: impl Into<Element<'a, M>>, pos: Position) -> Tooltip<'a, M>;
 
